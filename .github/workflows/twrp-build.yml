@@ -40,14 +40,14 @@ jobs:
           echo "$HOME/bin" >> $GITHUB_PATH
           $HOME/bin/repo --version
 
-      - name: Init repo (TWRP 8.1 = 3.3.x)
+      - name: Init repo (local omni-twrp-9.0 manifest)
         run: |
           set -x
           git config --global user.email "build@example.com"
           git config --global user.name "build"
           git config --global color.ui false
           mkdir -p twrp && cd twrp
-          repo init -u https://github.com/TeamWin/android_manifest.git -b twrp-8.1 -g all
+          repo init -u https://github.com/lehoangpro0815-droid/twrp -b main -m default.xml -g all
           repo sync -j4 --force-sync
 
       - name: Add device tree (j2corelte 8.1)
