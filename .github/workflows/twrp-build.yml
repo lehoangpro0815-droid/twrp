@@ -33,6 +33,9 @@ jobs:
 
       - name: Init repo (TWRP 8.1 = 3.3.x)
         run: |
+          git config --global user.email "build@example.com"
+          git config --global user.name "build"
+          git config --global color.ui false
           mkdir -p twrp && cd twrp
           repo init -u https://github.com/TeamWin/android_manifest.git -b twrp-8.1 --depth=1
           repo sync -j4 --force-sync --no-clone-bundle
