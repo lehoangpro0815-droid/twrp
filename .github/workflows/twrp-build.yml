@@ -73,6 +73,7 @@ jobs:
            export PATH=$JAVA_HOME/bin:$PATH
            java -version
            lunch omni_j2corelte-eng
+           export ALLOW_MISSING_DEPENDENCIES=true
            make recoveryimage -j$(nproc)
 
       - name: Upload recovery.img
