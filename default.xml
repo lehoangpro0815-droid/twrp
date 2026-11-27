@@ -623,4 +623,7 @@
   <!-- OmniROM -->
   <include name="omni-default.xml" />
 
+  <!-- TWRP extras (TeamWin/LineageOS remotes, vendor/omni, recovery, build) -->
+  <include name="twrp-extras.xml" />
+
 </manifest>
