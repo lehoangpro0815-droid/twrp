@@ -53,9 +53,9 @@ jobs:
       - name: Add device tree (j2corelte 8.1)
         run: |
           cd twrp
-          # copy your local android-8.1 device tree here (push it into this repo under device/samsung/j2corelte)
-          cp -r ../android_device_samsung_j2corelte-android-8.1 device/samsung/j2corelte 2>/dev/null || \
-            git clone https://github.com/<your-user>/android_device_samsung_j2corelte -b twrp-8.1 device/samsung/j2corelte
+          mkdir -p device/samsung
+          cp -r ../android_device_samsung_j2corelte-android-8.1 device/samsung/j2corelte
+          ls device/samsung/j2corelte
 
       - name: Build recovery
         run: |
