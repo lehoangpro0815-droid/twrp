@@ -46,10 +46,8 @@
 <!-- Include shallow clone of needed external/frameworks folders -->
     <remove-project name="platform/external/nist-sip" />
     <remove-project name="platform/external/tagsoup" />
-    <remove-project name="platform/frameworks/base" />
     <remove-project name="platform/frameworks/data-binding" />
     <remove-project name="platform/frameworks/opt/net/voip" />
-    <remove-project name="platform/frameworks/opt/telephony" />
     <remove-project name="platform/frameworks/support" />
     <project path="external/nist-sip" name="platform/external/nist-sip" groups="pdk" clone-depth="1" />
     <project path="external/tagsoup" name="platform/external/tagsoup" groups="pdk" clone-depth="1" />
