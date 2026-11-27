@@ -57,8 +57,9 @@ jobs:
         run: |
           cd twrp
           mkdir -p device/samsung
+          rm -rf device/samsung/j2corelte
           cp -r ../android_device_samsung_j2corelte-android-8.1 device/samsung/j2corelte
-          ls device/samsung/j2corelte
+          grep TARGET_ARCH_VARIANT device/samsung/j2corelte/BoardConfig.mk
 
       - name: Build recovery
         run: |
