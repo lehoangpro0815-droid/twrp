@@ -67,7 +67,6 @@ jobs:
           mkdir -p kernel/samsung
           git clone --depth=1 https://github.com/VladAndroidGamer/android_kernel_samsung_j2corelte -b master kernel/samsung/j2corelte
           . build/envsetup.sh
-          rm -rf vendor/omni/build/soong/generator
           lunch omni_j2corelte-eng
           make recoveryimage -j$(nproc)
 
