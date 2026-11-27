@@ -47,8 +47,8 @@ jobs:
           git config --global user.name "build"
           git config --global color.ui false
           mkdir -p twrp && cd twrp
-          repo init -u https://github.com/lehoangpro0815-droid/twrp -b main -m default.xml -g all
-          repo sync -j4 --force-sync
+          repo init -u https://github.com/lehoangpro0815-droid/twrp -b main -m default.xml -g all --depth=1
+          repo sync -j4 --force-sync --no-clone-bundle
 
       - name: Add device tree (j2corelte 8.1)
         run: |
