@@ -68,7 +68,7 @@ jobs:
           git clone --depth=1 https://github.com/VladAndroidGamer/android_kernel_samsung_j2corelte -b master kernel/samsung/j2corelte
           . build/envsetup.sh
           rm -rf bootable/recovery/tests
-          export BUILD_BROKEN_MISSING_REQUIRED_MODULES := true
+          export BUILD_BROKEN_MISSING_REQUIRED_MODULES=true
           lunch omni_j2corelte-eng
           make recoveryimage -j$(nproc)
 
