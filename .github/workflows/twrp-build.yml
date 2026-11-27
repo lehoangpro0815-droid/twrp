@@ -67,7 +67,8 @@ jobs:
           cd twrp
           mkdir -p kernel/samsung
           git clone --depth=1 https://github.com/VladAndroidGamer/android_kernel_samsung_j2corelte -b master kernel/samsung/j2corelte
-           . build/envsetup.sh
+          sed -i '/OmniGears\/src/d' packages/apps/Settings/Android.mk
+          . build/envsetup.sh
            export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
            export PATH=$JAVA_HOME/bin:$PATH
            java -version
