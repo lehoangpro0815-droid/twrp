@@ -37,5 +37,4 @@
 
   <!-- LAST: Remove unused/forked Projects for minimal TWRP -->
 
-  <include name="twrp-extras.xml"/>
 </manifest>
