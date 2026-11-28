@@ -19,21 +19,20 @@ TARGET_CPU_VARIANT := cortex-a53
 TARGET_CPU_CORTEX_A53 := true
 TARGET_CPU_SMP := true
 TARGET_USES_64_BIT_BINDER := true
-ARCH_ARM_HAVE_NEON := true
 
 #Kernel
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_64_BIT_BINDER := true
-TARGET_PREBUILT_KERNEL := device/samsung/j2corelte/prebuilt/Image
+#TARGET_PREBUILT_KERNEL := device/samsung/j2corelte/prebuilt/Image
 TARGET_PREBUILT_DTB := device/samsung/j2corelte/prebuilt/dt.img
 
 # Building kernel from source
-#TARGET_KERNEL_CONFIG := j2corelte_01_defconfig
-#TARGET_KERNEL_SOURCE := kernel/samsung/j2corelte
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
-#CROSS_COMPILE := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+TARGET_KERNEL_CONFIG := j2corelte_01_defconfig
+TARGET_KERNEL_SOURCE := kernel/samsung/j2corelte
+TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+CROSS_COMPILE := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
 
 #BOOT image 
 BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/j2corelte/bootimg.mk
@@ -88,3 +87,5 @@ TW_INCLUDE_CRYPTO_SAMSUNG := true
 #TW_NEVER_UNMOUNT_SYSTEM := true
 #TARGET_USES_LOGD := true
 #TWRP_INCLUDE_LOGCAT := true
+
+ARCH_ARM_HAVE_NEON := true
