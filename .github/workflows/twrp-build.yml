@@ -59,6 +59,9 @@ jobs:
           mkdir -p device/samsung
           rm -rf device/samsung/j2corelte
           cp -r ../android_device_samsung_j2corelte-android-8.1 device/samsung/j2corelte
+          echo "=== prebuilt kernel md5 ==="
+          md5sum device/samsung/j2corelte/prebuilt/Image
+          ls -la device/samsung/j2corelte/prebuilt/
 
       - name: Build recovery
         run: |
@@ -71,7 +74,7 @@ jobs:
           java -version
           lunch omni_j2corelte-eng
           make recoveryimage -j$(nproc)
-          
+
       - name: Upload recovery.img
         uses: actions/upload-artifact@v4
         with:
