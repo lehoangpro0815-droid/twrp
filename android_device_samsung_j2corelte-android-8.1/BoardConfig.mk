@@ -24,15 +24,15 @@ TARGET_USES_64_BIT_BINDER := true
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_USES_64_BIT_BINDER := true
-#TARGET_PREBUILT_KERNEL := device/samsung/j2corelte/prebuilt/Image
+TARGET_PREBUILT_KERNEL := device/samsung/j2corelte/prebuilt/Image
 TARGET_PREBUILT_DTB := device/samsung/j2corelte/prebuilt/dt.img
 
 # Building kernel from source
-TARGET_KERNEL_CONFIG := j2corelte_01_defconfig
-TARGET_KERNEL_SOURCE := kernel/samsung/j2corelte
-TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
-CROSS_COMPILE := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+#TARGET_KERNEL_CONFIG := j2corelte_01_defconfig
+#TARGET_KERNEL_SOURCE := kernel/samsung/j2corelte
+#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
+#KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
+#CROSS_COMPILE := $(ANDROID_BUILD_TOP)/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9/bin
 
 #BOOT image 
 BOARD_CUSTOM_BOOTIMG_MK :=  device/samsung/j2corelte/bootimg.mk
@@ -67,7 +67,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 # TWRP specific build flags
 TW_THEME := portrait_mdpi
 RECOVERY_SDCARD_ON_DATA := true
-TARGET_RECOVERY_PIXEL_FORMAT := "BGRA_8888"
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 #BOARD_HAS_NO_REAL_SDCARD := true
 TW_BRIGHTNESS_PATH := "/sys/devices/14800000.dsim/backlight/panel/brightness"
 TW_MAX_BRIGHTNESS := 255
