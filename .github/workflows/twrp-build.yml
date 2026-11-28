@@ -1,4 +1,4 @@
-name: Build TWRP (android-8.1) j2corelte
+name: Build TWRP (minimal 7.1) j2corelte
 
 on:
   workflow_dispatch:
@@ -43,41 +43,37 @@ jobs:
           echo "$HOME/bin" >> $GITHUB_PATH
           $HOME/bin/repo --version
 
-      - name: Init repo (local omni-twrp-9.0 manifest)
+      - name: Init repo (minimal TWRP 7.1 manifest)
         run: |
           set -x
           git config --global user.email "build@example.com"
           git config --global user.name "build"
           git config --global color.ui false
           mkdir -p twrp && cd twrp
-          repo init -u https://github.com/lehoangpro0815-droid/twrp -b main -m default.xml --depth=1
+          repo init -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni -b twrp-7.1 --depth=1
           repo sync -j4 --force-sync --no-clone-bundle
 
-      - name: Add device tree (j2corelte 8.1)
+      - name: Add device tree (j2corelte)
         run: |
           cd twrp
           mkdir -p device/samsung
           rm -rf device/samsung/j2corelte
           cp -r ../android_device_samsung_j2corelte-android-8.1 device/samsung/j2corelte
-          grep TARGET_ARCH_VARIANT device/samsung/j2corelte/BoardConfig.mk
 
       - name: Build recovery
         run: |
           set -x
           cd twrp
-          mkdir -p kernel/samsung
-          git clone --depth=1 https://github.com/VladAndroidGamer/android_kernel_samsung_j2corelte -b master kernel/samsung/j2corelte
-          sed -i '/OmniGears\/src/d' packages/apps/Settings/Android.mk
           . build/envsetup.sh
-           export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-           export PATH=$JAVA_HOME/bin:$PATH
-           java -version
-           lunch omni_j2corelte-eng
-           export ALLOW_MISSING_DEPENDENCIES=true
-           make recoveryimage -j$(nproc)
+          export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+          export PATH=$JAVA_HOME/bin:$PATH
+          export ALLOW_MISSING_DEPENDENCIES=true
+          java -version
+          lunch omni_j2corelte-eng
+          make recoveryimage -j$(nproc)
 
       - name: Upload recovery.img
         uses: actions/upload-artifact@v4
         with:
-          name: twrp-j2corelte-8.1
+          name: twrp-j2corelte-minimal71
           path: twrp/out/target/product/j2corelte/recovery.img
