@@ -74,6 +74,9 @@ jobs:
           export PATH=$JAVA_HOME/bin:$PATH
           export ALLOW_MISSING_DEPENDENCIES=true
           java -version
+          rm -rf out
+          echo "=== fstab md5 ==="
+          md5sum device/samsung/j2corelte/recovery.fstab
           lunch omni_j2corelte-eng
           make recoveryimage -j$(nproc)
 
